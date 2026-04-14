@@ -1,103 +1,158 @@
-/* GLOBAL */
+/* =========================
+   GLOBAL STYLES
+========================= */
 .App {
   font-family: Arial, Helvetica, sans-serif;
   color: #1f1f1f;
   background-color: #f8f9fb;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* ================= NAVBAR ================= */
+/* =========================
+   NAVBAR
+========================= */
 nav {
   width: 100%;
-  padding: 20px 40px;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .nav__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 40px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  overflow: visible;
 }
 
-/* LEFT + LINKS */
+/* Logo */
+.logo {
+  width: 120px;
+  display: block;
+}
+
+/* Nav Links */
 .nav__links {
   display: flex;
   align-items: center;
   gap: 20px;
+
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.nav__list {
-  list-style: none;
 }
 
 .nav__link {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  transition: 0.2s ease;
 }
 
 .nav__link:hover {
   color: #4f46e5;
 }
 
-/* LOGO */
-.logo {
-  width: 120px;
-}
-
-/* CART */
-.nav__icon {
+/* =========================
+   SHOPPING CART (FIXED + CLEAN)
+========================= */
+.nav__right {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 18px;
 }
 
+/* Cart container */
+.nav__cart {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  cursor: pointer;
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+/* Cart icon */
+.nav__cart svg,
+.nav__cart i {
+  font-size: 20px;
+  display: block;
+  color: #333;
+  transition: 0.2s ease;
+}
+
+.nav__cart:hover svg,
+.nav__cart:hover i {
+  color: #4f46e5;
+  transform: scale(1.05);
+}
+
+/* Cart number badge */
 .cart__length {
-  font-size: 12px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+
   background: red;
   color: white;
+  font-size: 11px;
+
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  padding: 2px 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* HAMBURGER */
+/* =========================
+   HAMBURGER MENU
+========================= */
 .btn__menu {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
   display: none;
 }
 
-/* MOBILE MENU */
+/* =========================
+   MOBILE MENU
+========================= */
 .menu__backdrop {
   position: fixed;
   top: 0;
   right: 0;
-  width: 250px;
+  width: 260px;
   height: 100vh;
-  background: white;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+
   display: none;
   flex-direction: column;
   padding: 20px;
+  z-index: 999;
 }
 
 .menu__links {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 0;
 }
 
-.menu__link {
-  text-decoration: none;
-  color: #333;
-}
-
-/* ================= LANDING ================= */
+/* =========================
+   LANDING
+========================= */
 .landing {
   display: flex;
   align-items: center;
@@ -109,7 +164,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   width: 100%;
+  max-width: 1200px;
 }
 
 .header__description h1 {
@@ -129,38 +186,45 @@ nav {
 .btn {
   margin-top: 20px;
   padding: 10px 20px;
+
   background: #4f46e5;
-  color: white;
+  color: #fff;
+
   border: none;
-  cursor: pointer;
   border-radius: 6px;
+
+  cursor: pointer;
 }
 
-/* IMAGE */
+/* Image */
 .header__img--wrapper img {
   width: 400px;
+  max-width: 100%;
 }
 
-/* ================= HIGHLIGHTS ================= */
+/* =========================
+   HIGHLIGHTS
+========================= */
 .highlights__container {
   display: flex;
   justify-content: center;
   align-items: stretch;
+
   gap: 30px;
   padding: 60px 40px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+
+  flex-wrap: wrap;
 }
 
 .highlight {
-  background: white;
-  padding: 25px;
+  background: #fff;
   width: 250px;
+  padding: 25px;
+
   border-radius: 12px;
   text-align: center;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  flex: 0 0 auto;
-  transition: transform 0.2s ease;
 }
 
 .highlight:hover {
@@ -173,12 +237,25 @@ nav {
   color: #4f46e5;
 }
 
-.highlight__subtitle {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .nav__links {
+    display: none;
+  }
 
-.highlight__para {
-  font-size: 14px;
-  color: #666;
+  .btn__menu {
+    display: block;
+  }
+
+  .header__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .header__description h1 {
+    font-size: 32px;
+  }
 }
